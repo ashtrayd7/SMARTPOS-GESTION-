@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<script>
+
+let opcionMenu = 0;
+let opcionMenu2 = 0;
+let productoEncontrado=false;
+let inventario =[];
+let mensaje="";
+
+
+while(opcionMenu != 6){
+    opcionMenu = Number(prompt(`Que quieres hacer el dia de hoy?
+     1.-Ventas 
+     2.-Productos 
+     3.-Buscar 
+     4.-Inventario 
+     5.-Reportes 
+     6.-Salir`
+
+    ))
+
+    switch(opcionMenu){
+
+        case 1:{
+            let nombreProducto =(prompt("Introduzca el nombre de su producto.."))
+            let precioProducto = Number(prompt("Cual es el precio del producto.."))
+            let cantidad = Number(prompt("Cual es la cantidad?.."))
+            let total = precioProducto * cantidad
+            let descuento= total * 0.10
+            let total_FINAL = total - descuento
+
+           if(cantidad> 5)
+    
+              {
+               alert(`Tienes un descuento por llevar mas de 5 productos su total es ${total_FINAL}`)
+                }else{
+               alert(`No tienes descuento ya que solo llevas ${cantidad} productos, el total sería ${total}`)
+               }
+            }
+            break;
+
+        case 2:
+            opcionMenu2 = 0;
+            while(opcionMenu2!=5) {
+            opcionMenu2=Number(prompt(`Buen dia que quieres hacer?
+            =========PRODUCTOS=======
+            1. Registrar Productos
+            2. Mostrar Productos
+            3. Editar Productos
+            4. Eliminar Producto
+            5. Regresar`))
+
+                switch(opcionMenu2){ 
+                case 1:{ 
+            alert(`Registrar Nuevo Producto`);
+                function productoExiste(nombreProducto){
+                  for(let producto of inventario ){
+                    if(producto.nombre === nombreProducto){
+                        return true;
+                    }
+                  }
+                  return false;
+                }
+        
+            let productoNuevo={
+            nombre :prompt("Cual es el nombre de tu producto?"),
+            precio: Number(prompt("Cual es el precio de tu producto?")),
+            categoria:prompt("Cual es la categoria del producto")
+        
+                }
+                function guardarProducto(productoNuevo){
+        
+
+               if (productoExiste(productoNuevo.nombre)){
+                alert(`El producto ya existe`)
+
+               }else{
+                inventario.push(productoNuevo) 
+                alert(`Producto Guardado`)  
+                    }}
+
+                guardarProducto(productoNuevo);
+
+                }
+                break;
+        
+                case 2:{
+                    let mensaje = ""
+                    for (let producto of inventario)
+                    mensaje += "Nombre: " + producto.nombre + " - Precio: " + producto.precio + " - Categoria: " + producto.categoria + "\n"
+                    alert(mensaje);
+                }
+                break;
+
+                case 3:{
+                    let mensaje1 = ""
+                    let productoEncontrado = false;
+                    let nombreBuscado=""
+                    let nuevoPrecio=""
+
+                    function editarProducto(producto){
+                        if (producto.nombre === nombreBuscado){
+                            
+                        }
+                    }
+                 }
+                break;
+                }
+
+
+            
+            } 
+                case 4:{
+
+                }
+        break;
+        
+
+        case 3:
+    
+            
+            break;
+        
+        case 4:
+            alert("Saliendo...");
+    
+        
+            break;
+        
+    }
+}
+
+</script>
